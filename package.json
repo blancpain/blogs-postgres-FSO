@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "migration:down": "node utils/rollback.js"
   },
   "repository": {
     "type": "git",
@@ -17,11 +18,14 @@
   },
   "homepage": "https://github.com/blancpain/blogs-postgres-FSO#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^9.0.1",
     "pg": "^8.11.2",
-    "sequelize": "^6.32.1"
+    "sequelize": "^6.32.1",
+    "umzug": "^3.3.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

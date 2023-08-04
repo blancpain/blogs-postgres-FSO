@@ -1,7 +1,12 @@
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFAYi5jb20iLCJpZCI6MSwiaWF0IjoxNjkxMTU4NDY1fQ.MrkvlpBs0T63AeCGB4b4iPzBu2dKqbojPXZSv1fqhpg
+
 
 {
-  "title": "Hello",
-  "author": "Lili"
+  "title": "The dog.",
+  "author": "Jason",
+  "url": "www.blala.co.uk",
+  "likes": 50,
+  "year": 2023
 }

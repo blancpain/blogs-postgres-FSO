@@ -1,37 +1,29 @@
 const { DataTypes } = require("sequelize");
-
 const { sequelize } = require("../utils/db");
 
-const Blog = sequelize.define(
-  "blog",
+const User = sequelize.define(
+  "user",
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    author: {
-      type: DataTypes.STRING,
-    },
-    url: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    title: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    likes: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0,
-      allowNull: false,
-    },
-    year: {
-      type: DataTypes.INTEGER,
+      unique: true,
       validate: {
-        min: 1991,
-        max: new Date().getFullYear(),
+        isEmail: true,
       },
+    },
+    passwordHash: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   },
   {
@@ -39,4 +31,4 @@ const Blog = sequelize.define(
   }
 );
 
-module.exports = Blog;
+module.exports = User;
