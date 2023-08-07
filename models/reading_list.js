@@ -1,38 +1,33 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../utils/db");
 
-const User = sequelize.define(
-  "user",
+const ReadingList = sequelize.define(
+  "reading_list",
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
+    userId: {
+      type: DataTypes.INTEGER,
       allowNull: false,
+      references: { model: "users", key: "id" },
     },
-    username: {
-      type: DataTypes.STRING,
+    blogId: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
+      references: { model: "blogs", key: "id" },
     },
-    passwordHash: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    disabled: {
+    read: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
   },
   {
     underscored: true,
+    timestamps: false,
   }
 );
 
-module.exports = User;
+module.exports = ReadingList;
